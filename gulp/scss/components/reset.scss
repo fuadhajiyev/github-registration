@@ -1,0 +1,71 @@
+.fail-context {
+    padding: 0 16px;
+}
+
+
+.reset-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 79vh;
+    // padding-bottom: 8rem;
+    
+
+
+    &-context {
+
+        .fail-message-icon {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 24px;
+        }
+
+        .reset-message-text {
+            text-align: center;
+            padding-bottom: 64px;
+
+            h1 {
+                color: $black;
+                padding-bottom: 16px;
+                width: 100%;
+                margin: 0 auto;
+                font-size: 40px;
+                font-weight: 600;
+
+                @include respond(phone) {
+
+                    font-size: 32px;
+                }
+
+            }
+
+            span {
+                color: $gray;
+                font-size: 14px;
+
+
+            }
+        }
+
+        .reset-message-btn {
+            margin: 0 auto;
+            width: 424px;
+
+            @include respond(phone) {
+                width: 100%;
+            }
+
+        }
+
+    }
+}
+
+.resetForm {
+    min-width: 424px;
+    width: 80%;
+
+    @include respond(tab-port) {
+        min-width: inherit;
+        width: 100%;
+    }
+}

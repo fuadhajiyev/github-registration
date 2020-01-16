@@ -1,0 +1,85 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+
+    @include respond(tab-port) {
+        padding: 34px  16px;
+      
+    }
+
+    @include respond(phone) {
+        flex-direction: column;
+        align-items: flex-start;
+        
+       
+     }
+     .logo{
+        @include respond(phone) {
+         padding-bottom: 10px;
+        }
+    
+     }
+
+
+}
+
+.success-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+
+
+    &-context {
+        .success-message-icon {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 24px;
+        }
+
+        .success-message-text {
+            text-align: center;
+
+            h1 {
+                color: $black;
+                padding-bottom: 16px;
+                font-size: 40px;
+                font-weight: 600;
+                @include respond(phone) {
+            
+                    font-size: 32px;
+                }
+            }
+
+            span {
+                color: $gray;
+                font-size: 14px;
+
+            }
+        }
+
+        .success-message-btn {
+            padding-top: 56px;
+            margin: 0 auto;
+            width: 424px;
+            @include respond(phone) {
+                width: 100%;
+            }
+
+        }
+
+    }
+}
+
+.padding-none {
+    padding: 0 !important;
+}
+
+.success-icon{
+        
+    @include respond(phone) {
+        width: 20%;
+    }
+}

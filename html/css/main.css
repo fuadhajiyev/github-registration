@@ -1,0 +1,682 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+@font-face {
+  src: url(../fonts/interui/InterUI-Regular.woff);
+  font-family: InterUI;
+  font-weight: 400; }
+
+@font-face {
+  src: url(../fonts/interui/InterUI-Medium.woff);
+  font-family: InterUI;
+  font-weight: 500; }
+
+@font-face {
+  src: url(../fonts/interui/InterUI-SemiBold.woff);
+  font-family: InterUI;
+  font-weight: 600; }
+
+@font-face {
+  src: url(../fonts/interui/InterUI-Bold.woff);
+  font-family: InterUI;
+  font-weight: 700; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+
+body {
+  font-family: InterUI;
+  font-weight: 400;
+  min-height: 100%; }
+  body a {
+    text-decoration: none; }
+
+.SignUpForm {
+  min-width: 42.4rem;
+  width: 80%; }
+  @media only screen and (max-width: 56.25em) {
+    .SignUpForm {
+      min-width: 296px; } }
+
+.group {
+  position: relative;
+  height: 7.7rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
+
+.margin-bottom {
+  margin-bottom: 4rem; }
+
+.group-example {
+  color: #a6abbd;
+  font-size: 12px; }
+
+input {
+  font-size: 1.6rem;
+  padding: 1.8rem;
+  padding-left: 1.6rem;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  border: solid 1px #e5e5e5;
+  background-color: #ffffff; }
+
+input:focus {
+  outline: none; }
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 1.6rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 8px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+  padding-top: 10px;
+  font-family: Arial;
+  padding-left: 16px; }
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+  top: -6px;
+  font-size: 12px;
+  color: #a6abbd; }
+
+input:focus {
+  padding-top: 24px !important;
+  padding-bottom: 15px !important; }
+
+/* BOTTOM BARS ================================= */
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 10rem;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5; }
+
+/* active state */
+.pass {
+  display: -webkit-box;
+  display: flex; }
+  .pass input {
+    display: inline-block; }
+  .pass a {
+    border-radius: 4px;
+    border-left: none;
+    display: inline-block;
+    -webkit-box-align: center;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    top: 20px;
+    right: 5%;
+    position: absolute; }
+
+.fa-eye-slash {
+  color: #a6abbd;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px; }
+  .fa-eye-slash:active {
+    color: #646464; }
+
+label {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.pass-example {
+  display: block; }
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display: none;
+  width: 100%;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 1; }
+
+#message p {
+  padding: 10px 35px;
+  font-size: 14px; }
+  #message p b {
+    left: 50px;
+    position: absolute;
+    font-weight: 500; }
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: #a6abbd; }
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  color: #1089ff !important;
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Free';
+  content: '\f058'; }
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: #db122a; }
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  font-size: 18px;
+  font-family: 'Font Awesome 5 Free';
+  content: "\f057"; }
+
+.row {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  min-height: 100vh; }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      flex-wrap: wrap; } }
+
+.col-right {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%; }
+  @media only screen and (max-width: 56.25em) {
+    .col-right {
+      width: 100%; } }
+
+.col-left {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 50%; }
+  @media only screen and (max-width: 56.25em) {
+    .col-left {
+      display: none; } }
+
+.left {
+  background-image: url(../img/registration.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%; }
+  .left .logo {
+    padding: 3.2rem; }
+    .left .logo .logoBotbox {
+      height: 30px; }
+  @media only screen and (max-width: 56.25em) {
+    .left {
+      display: none; } }
+
+.right {
+  padding: 6.4rem 9rem;
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 100%; }
+  @media only screen and (max-width: 30.5em) {
+    .right {
+      padding: 0; } }
+  @media only screen and (max-width: 56.25em) {
+    .right {
+      margin-top: 12rem; } }
+  .right .logo {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 32px; }
+    .right .logo .logoBotbox {
+      height: 30px; }
+    @media only screen and (max-width: 56.25em) {
+      .right .logo {
+        display: block; } }
+
+.SignUp-head-title {
+  color: #23374d;
+  font-size: 32px;
+  padding-bottom: 12px; }
+  @media only screen and (max-width: 30.5em) {
+    .SignUp-head-title {
+      font-size: 32px; } }
+
+.SignUp-head-subtitle {
+  color: #a6abbd;
+  line-height: 24px;
+  padding-bottom: 34px;
+  font-weight: 400;
+  font-size: 16px; }
+  .SignUp-head-subtitle span {
+    padding-right: 5px; }
+  .SignUp-head-subtitle a {
+    cursor: pointer; }
+
+.color-blue {
+  color: #1089ff;
+  font-size: 16px;
+  font-weight: 500; }
+
+.SignUp-btn {
+  width: 100%; }
+
+.btn {
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+  padding: 1.8rem 0;
+  width: 100%;
+  background-color: #1089ff;
+  color: #fff;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  font-size: 14px; }
+  .btn:hover {
+    background-color: #0e7be5; }
+
+.SignUp-footer {
+  padding-bottom: 8rem; }
+  .SignUp-footer-title h1 {
+    font-size: 2.4rem;
+    color: #23374d; }
+    @media only screen and (max-width: 30.5em) {
+      .SignUp-footer-title h1 {
+        font-size: 18px; } }
+  .SignUp-footer-socials {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center; }
+    @media only screen and (max-width: 30.5em) {
+      .SignUp-footer-socials {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-align: start;
+        align-items: flex-start; } }
+    .SignUp-footer-socials a {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      padding: 0 2rem;
+      border: 1px solid #e5e5e5;
+      margin-right: 16px;
+      background-color: #fff;
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out; }
+      @media only screen and (max-width: 30.5em) {
+        .SignUp-footer-socials a {
+          padding: 0;
+          width: 20rem;
+          height: 50px;
+          margin-bottom: 16px;
+          -webkit-box-pack: center;
+          justify-content: center; } }
+      .SignUp-footer-socials a:hover {
+        background-color: #e5e5e54d; }
+      .SignUp-footer-socials a .icon-google {
+        height: 24px; }
+      .SignUp-footer-socials a .fa-facebook-f {
+        font-size: 20px;
+        color: #1089ff; }
+      .SignUp-footer-socials a .soc-name {
+        color: #23374d;
+        padding: 1.6rem 10px;
+        font-size: 14px;
+        font-weight: 500; }
+
+.navbar {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 32px; }
+  @media only screen and (max-width: 56.25em) {
+    .navbar {
+      padding: 34px  16px; } }
+  @media only screen and (max-width: 30.5em) {
+    .navbar {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-align: start;
+      align-items: flex-start; } }
+  @media only screen and (max-width: 30.5em) {
+    .navbar .logo {
+      padding-bottom: 10px; } }
+
+.success-message {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 70vh; }
+  .success-message-context .success-message-icon {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-bottom: 24px; }
+  .success-message-context .success-message-text {
+    text-align: center; }
+    .success-message-context .success-message-text h1 {
+      color: #23374d;
+      padding-bottom: 16px;
+      font-size: 40px;
+      font-weight: 600; }
+      @media only screen and (max-width: 30.5em) {
+        .success-message-context .success-message-text h1 {
+          font-size: 32px; } }
+    .success-message-context .success-message-text span {
+      color: #a6abbd;
+      font-size: 14px; }
+  .success-message-context .success-message-btn {
+    padding-top: 56px;
+    margin: 0 auto;
+    width: 424px; }
+    @media only screen and (max-width: 30.5em) {
+      .success-message-context .success-message-btn {
+        width: 100%; } }
+
+.padding-none {
+  padding: 0 !important; }
+
+@media only screen and (max-width: 30.5em) {
+  .success-icon {
+    width: 20%; } }
+
+.details {
+  display: block;
+  text-align: center;
+  background-color: transparent;
+  color: #1089ff;
+  border-radius: 4px;
+  border: 1px solid #1089ff;
+  margin-top: 16px; }
+  .details:hover {
+    background-color: #1089ff;
+    color: #fff; }
+
+.fail-context {
+  padding: 0 16px; }
+
+.fail-message {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 70vh; }
+  .fail-message-context .fail-message-icon {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-bottom: 24px; }
+  .fail-message-context .fail-message-text {
+    text-align: center; }
+    .fail-message-context .fail-message-text h1 {
+      color: #23374d;
+      padding-bottom: 16px;
+      width: 70%;
+      margin: 0 auto;
+      font-size: 40px;
+      font-weight: 600; }
+      @media only screen and (max-width: 30.5em) {
+        .fail-message-context .fail-message-text h1 {
+          width: 100%;
+          font-size: 32px; } }
+    .fail-message-context .fail-message-text span {
+      color: #a6abbd;
+      font-size: 14px; }
+  .fail-message-context .fail-message-btn {
+    padding-top: 56px;
+    margin: 0 auto;
+    width: 424px; }
+    @media only screen and (max-width: 30.5em) {
+      .fail-message-context .fail-message-btn {
+        width: 100%; } }
+
+@media only screen and (max-width: 30.5em) {
+  .fail-icon {
+    width: 30%; } }
+
+.logo-signIn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 32px; }
+  @media only screen and (max-width: 30.5em) {
+    .logo-signIn {
+      padding: 16px; } }
+  .logo-signIn .logoBotbox {
+    height: 30px; }
+
+.col-left-signIn {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 50%; }
+  @media only screen and (max-width: 56.25em) {
+    .col-left-signIn {
+      display: none; } }
+
+.col-right-signIn {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%; }
+  @media only screen and (max-width: 56.25em) {
+    .col-right-signIn {
+      width: 100%; } }
+
+.SignIn-left {
+  background-image: url(../img/illustration.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%; }
+  .SignIn-left .logo {
+    padding: 32px; }
+    .SignIn-left .logo .logoBotbox {
+      height: 42px; }
+  @media only screen and (max-width: 56.25em) {
+    .SignIn-left {
+      display: none; } }
+
+.check-input {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
+
+#check {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  width: 18px;
+  height: 18px; }
+
+.d-flex {
+  display: -webkit-box;
+  display: flex; }
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 122px;
+  height: 20px;
+  top: -5px;
+  cursor: pointer !important; }
+  .styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0; }
+  .styled-checkbox + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #a6abbd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out; }
+  .styled-checkbox:checked + label:before {
+    background: #13d696; }
+  .styled-checkbox:disabled + label {
+    color: #b8b8b8;
+    cursor: auto; }
+  .styled-checkbox:disabled + label:before {
+    box-shadow: none;
+    background: #ddd; }
+  .styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+.unstyled {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  list-style-type: none; }
+
+li {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content; }
+
+.title {
+  text-align: center;
+  color: #4571ec; }
+
+.rememberMe {
+  font-size: 14px !important;
+  color: #23374d !important;
+  font-weight: 500 !important; }
+
+.height {
+  height: 4rem !important; }
+
+.fail-context {
+  padding: 0 16px; }
+
+.reset-message {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 79vh; }
+  .reset-message-context .fail-message-icon {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-bottom: 24px; }
+  .reset-message-context .reset-message-text {
+    text-align: center;
+    padding-bottom: 64px; }
+    .reset-message-context .reset-message-text h1 {
+      color: #23374d;
+      padding-bottom: 16px;
+      width: 100%;
+      margin: 0 auto;
+      font-size: 40px;
+      font-weight: 600; }
+      @media only screen and (max-width: 30.5em) {
+        .reset-message-context .reset-message-text h1 {
+          font-size: 32px; } }
+    .reset-message-context .reset-message-text span {
+      color: #a6abbd;
+      font-size: 14px; }
+  .reset-message-context .reset-message-btn {
+    margin: 0 auto;
+    width: 424px; }
+    @media only screen and (max-width: 30.5em) {
+      .reset-message-context .reset-message-btn {
+        width: 100%; } }
+
+.resetForm {
+  min-width: 424px;
+  width: 80%; }
+  @media only screen and (max-width: 56.25em) {
+    .resetForm {
+      min-width: inherit;
+      width: 100%; } }
+
+.forgot-context {
+  padding: 0 16px; }

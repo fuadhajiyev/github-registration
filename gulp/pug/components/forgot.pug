@@ -1,0 +1,21 @@
+header
+  .navbar
+    .logo
+      a(href='')
+        img(src='img/logo-header.svg', alt='')
+    .SignUp-head-subtitle.padding-none
+      span Already have an account?
+      a.color-blue Sign in
+  .reset-message
+    .reset-message-context.forgot-context
+      .reset-message-text
+        h1 Forgot password?
+        span Please write your registered email for reset your password
+      form.resetForm
+        .group.margin-bottom 
+          input#forgotPassword(type='text' required='')
+          span.highlight
+          label.lab-email E-mail 
+          p.group-example.email-example 
+      .reset-message-btn
+        a.btn(href='') Send 

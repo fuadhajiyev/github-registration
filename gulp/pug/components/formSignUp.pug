@@ -1,0 +1,69 @@
+.row
+  .col-left
+    .left
+      .logo
+        a(href="")
+          img.logoBotbox(src="img/logo-tablet.svg" alt="" srcset="")
+  .col-right
+    .right
+      .logo
+        a(href="")
+          img.logoBotbox(src="img/logo-header.svg" alt="" srcset="")
+      .SignUp-head
+        h1.SignUp-head-title Get your account
+        .SignUp-head-subtitle
+          span Already have an account?   
+          a(href="").color-blue Sign in 
+      form.SignUpForm
+        .group.margin-bottom 
+          input#username(type='text' required='')
+          span.highlight
+          label.lab-user Full name
+          p.group-example.username-example  e.g. John Doe Johnny
+        .group.margin-bottom 
+          input#email(type='text' required='')
+          span.highlight
+          label.lab-email E-mail 
+          p.group-example.email-example Enter your company e-mail
+        .group.margin-bottom 
+          .pass
+            input#password(type='password' name='password' required='')
+            a(type='button')
+              i.far.fa-eye-slash
+            span.highlight
+            label.lab-pass Password
+          p.group-example.pass-example Minimum 8 symbol
+          #message
+            p#letter.invalid
+              | 
+              b Include a lowercase letter
+              |  
+            p#capital.invalid
+              | 
+              b Include a uppercase letter
+              |  
+            p#number.invalid
+              | 
+              b Include a number
+            p#length.invalid
+              |
+              b Minimum 8 character
+        .group
+          .SignUp-btn
+            a.btn(href="") Sign up now 
+        .group
+          .SignUp-footer
+            .SignUp-footer-title.margin-bottom 
+              h1  or sign up via
+            .SignUp-footer-socials
+              a(href="" target="_blank") 
+                img.icon-google(src="img/google.svg" alt="" srcset="")
+                span.soc-name Google           
+              a(href="" target="_blank")
+                i.fab.fa-facebook-f 
+                span.soc-name  Facebook
+
+
+
+
+

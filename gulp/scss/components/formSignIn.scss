@@ -1,0 +1,171 @@
+.logo-signIn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding:32px;
+  @include respond(phone) {
+    padding: 16px;
+  }
+
+  .logoBotbox {
+      height: 30px;
+  }
+}
+
+.col-left-signIn{
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 50%;
+
+  @include respond(tab-port) {
+      display: none;;
+  }
+}
+.col-right-signIn {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+
+  @include respond(tab-port) {
+      width: 100%; 
+  }
+}
+
+.SignIn-left {
+  background-image: url(../img/illustration.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+
+  .logo {
+    padding: 32px;
+
+    .logoBotbox {
+      height: 42px;
+    }
+  }
+
+  @include respond(tab-port) {
+    display: none;
+  }
+}
+
+.check-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+#check {
+  width: max-content;
+  width: 18px;
+  height: 18px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.styled-checkbox {
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
+  width: 122px;
+  height: 20px;
+
+  
+  top: -5px;
+  cursor: pointer !important;
+
+  &+label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  // Box.
+  &+label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid $gray;
+
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+  }
+
+  // Box checked
+  &:checked+label:before {
+    background: #13d696;
+  }
+
+  // Disabled state label.
+  &:disabled+label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+
+  // Disabled box.
+  &:disabled+label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  // Checkmark. Could be replaced with an image
+  &:checked+label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow:
+      2px 0 0 white,
+      4px 0 0 white,
+      4px -2px 0 white,
+      4px -4px 0 white,
+      4px -6px 0 white,
+      4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+}
+
+// Demo-only styles
+// --------------
+
+
+.unstyled {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+li {
+  width: max-content;
+}
+
+//   .centered {
+//     margin: auto;
+//   }
+
+.title {
+  text-align: center;
+  color: rgb(69, 113, 236);
+}
+
+
+.rememberMe {
+  font-size: 14px !important;
+  color: $black !important;
+  font-weight: 500 !important;
+}
+.height{
+  height: 4rem !important;
+}

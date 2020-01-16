@@ -1,0 +1,213 @@
+.row {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+
+    @include respond(tab-port) {
+        flex-wrap: wrap;
+    }
+
+}
+
+.col-right {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+
+    @include respond(tab-port) {
+        width: 100%;
+    }
+}
+
+.col-left {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 50%;
+
+    @include respond(tab-port) {
+        display: none;
+        ;
+    }
+}
+
+.left {
+
+    background-image: url(../img/registration.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+
+    .logo {
+        padding: 3.2rem;
+
+        .logoBotbox {
+            height: 30px;
+        }
+    }
+
+    @include respond(tab-port) {
+        display: none;
+    }
+}
+
+.right {
+    padding: 6.4rem 9rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @include respond(phone) {
+
+        padding: 0;
+    }
+    @include respond(tab-port) {
+        margin-top: 12rem;
+  
+    }
+
+    .logo {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 32px;
+
+        .logoBotbox{
+            height: 30px;
+        }
+        
+    @include respond(tab-port) {
+       display:block;
+    }
+    }
+
+}
+
+.SignUp-head {
+
+    &-title {
+        color: $black;
+        font-size: 32px;
+
+        padding-bottom: 12px;
+
+        @include respond(phone) {
+            font-size: 32px;
+        }
+    }
+
+    &-subtitle {
+        color: $gray;
+        line-height: 24px;
+        padding-bottom: 34px;
+        font-weight: 400;
+        font-size: 16px;
+
+        span {
+            padding-right: 5px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+    }
+}
+
+.color-blue {
+    color: $blue;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.SignUp-btn {
+    width: 100%;
+}
+
+.btn {
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+    padding: 1.8rem 0;
+    width: 100%;
+    background-color: $blue;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+
+    &:hover {
+        background-color: #0e7be5;
+    }
+
+
+}
+
+.SignUp-footer {
+    padding-bottom: 8rem;
+    &-title {
+
+        h1 {
+            font-size: 2.4rem;
+            color: $black;
+
+            @include respond(phone) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-socials {
+        display: flex;
+        align-items: center;
+
+        @include respond(phone) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            border: 1px solid #e5e5e5;
+            margin-right: 16px;
+            background-color: #fff;
+            transition: all .3s ease-in-out;
+
+            @include respond(phone) {
+                padding: 0;
+
+                width: 20rem;
+                height: 50px;
+                margin-bottom: 16px;
+                justify-content: center;
+            }
+
+            &:hover {
+                background-color: #e5e5e54d;
+            }
+
+            .icon-google {
+                height: 24px;
+            }
+
+            .fa-facebook-f {
+                font-size: 20px;
+                color: $blue;
+            }
+
+            .soc-name {
+                color: $black;
+                padding: 1.6rem 10px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+}

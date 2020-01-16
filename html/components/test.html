@@ -1,0 +1,28 @@
+
+<div class="container">
+  <form>
+    <div class="group">
+      <input id="username" type="text" required=""/><span class="highlight"></span>
+      <label class="lab-user">Full name</label>
+      <p class="group-example username-example"> e.g. John Doe Johnny</p>
+    </div>
+    <div class="group">
+      <input id="email" type="text" required=""/><span class="highlight"></span>
+      <label class="lab-email">E-mail</label>
+      <p class="group-example email-example">Enter your company e-mail</p>
+    </div>
+    <div class="group">
+      <div class="pass">
+        <input id="password" type="password" name="password" required=""/><a type="button"><i class="far fa-eye-slash"></i></a><span class="highlight"></span>
+        <label class="lab-pass">Password</label>
+      </div>
+      <p class="group-example pass-example">Minimum 8 symbol</p>
+      <div id="message">
+        <p class="invalid" id="letter"> <b>Include a lowercase letter</b> </p>
+        <p class="invalid" id="capital"> <b>Include a uppercase letter</b> </p>
+        <p class="invalid" id="number"> <b>Include a number</b></p>
+        <p class="invalid" id="length"><b>Minimum 8 character</b></p>
+      </div>
+    </div>
+  </form>
+</div>

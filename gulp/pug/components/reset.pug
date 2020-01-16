@@ -1,0 +1,31 @@
+header
+  .navbar
+    .logo
+      a(href='')
+        img(src='img/logo-header.svg', alt='')
+    .SignUp-head-subtitle.padding-none
+      span Already have an account?
+      a.color-blue Sign in
+  .reset-message
+    .reset-message-context.reset-context
+      .reset-message-text
+        h1 Reset password
+        span Enter your new password
+      form.resetForm
+        .group.margin-bottom
+          .pass
+            input#resetPassword(type='password', name='password', required='')
+            a(type='button')
+              i.far.fa-eye-slash
+            span.highlight
+            label.lab-pass Enter new password
+          p.group-example.pass-example Minimum 8 symbol  
+        .group.margin-bottom
+          .pass
+            input#resetPassword(type='password', name='password', required='')
+            a(type='button')
+              i.far.fa-eye-slash
+            span.highlight
+            label.lab-pass Retype new password
+      .reset-message-btn
+        a.btn(href='') Save 

@@ -1,0 +1,15 @@
+//base
+@import './base/mixins';
+@import './base/variables';
+@import './base/base';
+
+//components
+@import './components/formSignUp';
+@import './components/SignUpContent';
+@import './components/SuccessPage';
+@import './components/FailPage';
+@import './components/formSignIn';
+@import './components/reset';
+@import './components/forgot';
+@import './components/checkEmail';
+
